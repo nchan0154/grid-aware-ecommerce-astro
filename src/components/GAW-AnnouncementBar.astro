@@ -1,0 +1,18 @@
+<custom-marquee>
+	<div data-marquee>15% percent off all products!</div>
+</custom-marquee>
+
+<script>
+	import marquee from "https://cdn.jsdelivr.net/npm/vanilla-marquee/dist/vanilla-marquee.js";
+
+	class CustomMarquee extends HTMLElement {
+		constructor() {
+			super();
+		}
+
+		connectedCallback() {
+			new marquee(this.querySelector("[data-marquee]"));
+		}
+	}
+	customElements.define("custom-marquee", CustomMarquee);
+</script>
