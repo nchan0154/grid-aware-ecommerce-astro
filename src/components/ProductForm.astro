@@ -1,0 +1,59 @@
+<div class="product-form stack">
+	<h1>Skincare bundle</h1>
+	<p>
+		Our cleanser, serum and moisturizer bundle is a complete routine for a
+		skincare minimalist.
+	</p>
+	<p>
+		*Images courtesy of <a href="https://unsplash.com/@neauthy">
+			Neuthy Skincare on Unsplash
+		</a>
+	</p>
+</div>
+<custom-dialog>
+	<button class="button" data-modal-opener>Add to cart</button>
+	<dialog class="dialog stack" slot="dialog">
+		<button class="dialog__close" data-close>&times; Close</button>
+		<p>Item has been added to cart!</p>
+		<button class="button" data-close>View cart</button>
+	</dialog>
+</custom-dialog>
+
+<script>
+	class CustomDialog extends HTMLElement {
+		constructor() {
+			super();
+		}
+
+		connectedCallback() {
+			this.button = this.querySelector("[data-modal-opener]");
+			this.dialog = this.querySelector("dialog");
+			this.close = this.dialog.querySelectorAll("[data-close]");
+
+			this.button.addEventListener("click", (event) => this.dialog.showModal());
+			this.close.forEach((close) => {
+				close.addEventListener("click", (event) => this.dialog.close());
+			});
+		}
+	}
+	customElements.define("custom-dialog", CustomDialog);
+</script>
+
+<style>
+	custom-dialog {
+		display: block;
+	}
+
+	.dialog {
+		background-color: var(--color-background);
+		color: var(--color-text);
+	}
+
+	.dialog__close {
+		display: block;
+		inline-size: fit-content;
+		margin-left: auto;
+		background: transparent;
+		border: none;
+	}
+</style>

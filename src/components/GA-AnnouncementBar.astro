@@ -1,0 +1,44 @@
+<custom-marquee class="marquee no-js">
+	<div class="marquee__text" data-marquee>15% percent off all products!</div>
+</custom-marquee>
+
+<script>
+	import marquee from "https://cdn.jsdelivr.net/npm/vanilla-marquee/dist/vanilla-marquee.js";
+	class CustomMarquee extends HTMLElement {
+		constructor() {
+			super();
+		}
+
+		connectedCallback() {
+			this.classList.remove("no-js");
+			this.marquee = new marquee(this.querySelector("[data-marquee]"), {
+				pauseOnHover: true,
+			});
+
+			const resizeObserver = new ResizeObserver((entries) => {
+				this.marquee.refresh();
+			});
+
+			resizeObserver.observe(this);
+		}
+	}
+	customElements.define("custom-marquee", CustomMarquee);
+</script>
+
+<style>
+	.marquee {
+		display: block;
+		padding-block: var(--space-3xs);
+		border-block-end: var(--border);
+	}
+
+	.marquee__text::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.no-js .marquee__text {
+		text-align: center;
+	}
+</style>

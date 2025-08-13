@@ -1,0 +1,52 @@
+<script>
+	import "../scripts/tabs.js";
+	const element = document.getElementById("tabs");
+	const tabs = new ARIAtabs(element);
+</script>
+
+<div class="tabs" id="tabs">
+	<section data-atabs-panel>
+		<h2 data-atabs-heading>Instructions</h2>
+		<ol>
+			<li>Cleanse to remove makeup and facial oils</li>
+			<li>Apply the serum for an antioxidant boost</li>
+			<li>Followup with our moisturizing cream</li>
+		</ol>
+	</section>
+	<section data-atabs-panel>
+		<h2 data-atabs-heading>Ingredients</h2>
+		<div>
+			Extract Blend [Water/Eau/Aqua, Chondrus Crispus (Red Algae) Extract],
+			Squalane, C13-15 Alkane, Glycerin, Helianthus Annuus (Sunflower) Seed Wax,
+			Lanolin Alcohol, Tri(Polyglyceryl-3/Lauryl) Hydrogenated Trilinoleate,
+			Cocos Nucifera (Coconut) Fruit Extract, Ceramide NP, Ceramide EOP,
+			Ceramide AP, Sodium Hyaluronate, Linoleic Acid, Oleic Acid, Palmitic Acid,
+			Linolenic Acid, Prunus Amygdalus Dulcis (Sweet Almond) Fruit Extract,
+			Fructooligosaccharides, Beta Vulgaris (Beet) Root Extract, Shea Butter
+			Ethyl Esters, Prunus Armeniaca (Apricot) Fruit Extract, Pimpinella Anisum
+			(Anise) Fruit Extract, Rubus Idaeus (Raspberry) Fruit Extract.
+		</div>
+	</section>
+</div>
+
+<style>
+	:global(.atabs__list__tab) {
+		display: inline-block;
+		padding: var(--space-s);
+		border: 2px solid #616161;
+		border-start-start-radius: 1rem;
+		border-start-end-radius: 1rem;
+	}
+
+	:global(.atabs__list__tab + .atabs__list__tab) {
+		margin-inline-start: -2px;
+	}
+	:global(.atabs__list__tab[aria-selected="true"]) {
+		border-color: currentColor;
+		border-block-end-color: var(--color-background);
+	}
+
+	:global(.atabs__panel) {
+		margin-block: var(--space-s);
+	}
+</style>

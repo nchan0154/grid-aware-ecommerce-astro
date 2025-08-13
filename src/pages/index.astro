@@ -1,8 +1,29 @@
 ---
-import AnnouncementBar from "../components/GAW-AnnouncementBar.astro";
 import Layout from "../layouts/Layout.astro";
+import AnnouncementBar from "../components/GA-AnnouncementBar.astro";
+import ProductSlider from "../components/GA-ProductSlider.astro";
+import ProductForm from "../components/ProductForm.astro";
+import Tabs from "../components/GA-tabs.astro";
 ---
 
 <Layout>
 	<AnnouncementBar />
+	<ProductSlider />
+	<div class="container">
+		<ProductForm />
+		<Tabs />
+	</div>
+	<slot name="dialog" />
 </Layout>
+
+<style>
+	.container {
+		margin: auto;
+		padding: var(--space-l) 0;
+		inline-size: 90%;
+		max-inline-size: 50ch;
+	}
+	:global(.container > * + *) {
+		margin-block-start: var(--space-l);
+	}
+</style>

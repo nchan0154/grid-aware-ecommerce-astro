@@ -1,0 +1,112 @@
+---
+import Image from "astro/components/Image.astro";
+import image1 from "../assets/1.jpg";
+import image3 from "../assets/3.jpg";
+import image4 from "../assets/4.jpg";
+import "@splidejs/splide/css";
+import "photoswipe/style.css";
+---
+
+<section class="splide no-js" aria-label="Splide Basic HTML Example">
+	<div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+				<a
+					href={image1.src}
+					target="_blank"
+					data-pswp-width="1040"
+					data-pswp-height="692">
+					<Image
+						class="splide__img"
+						src={image1}
+						alt=""
+						width="1040"
+						height="692"
+					/>
+				</a>
+			</li>
+			<li class="splide__slide">
+				<a
+					href={image3.src}
+					target="_blank"
+					data-pswp-width="1040"
+					data-pswp-height="692">
+					<Image class="splide__img" src={image3} alt="" />
+				</a>
+			</li>
+			<li class="splide__slide">
+				<a
+					href={image4.src}
+					target="_blank"
+					data-pswp-width="1040"
+					data-pswp-height="692">
+					<Image
+						class="splide__img"
+						src={image4}
+						alt=""
+						width="1040"
+						height="692"
+					/>
+				</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<script>
+	import Splide from "@splidejs/splide";
+	import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+	const splideEl = document?.querySelector(".splide");
+	splideEl.classList.remove("no-js");
+
+	new Splide(".splide", {
+		autoWidth: true,
+	}).mount();
+
+	const lightbox = new PhotoSwipeLightbox({
+		gallery: ".splide",
+		children: "a",
+		pswpModule: () => import("photoswipe"),
+	});
+	lightbox.init();
+</script>
+
+<style>
+	.splide {
+		visibility: visible;
+	}
+
+	.no-js .splide__track {
+		overflow-x: auto;
+	}
+
+	.splide__track,
+	.splide__list {
+		padding: 0;
+	}
+
+	.splide__img {
+		inline-size: 80vw;
+		max-inline-size: 100vh;
+		block-size: auto;
+		visibility: visible;
+	}
+
+	:global(.splide__arrow) {
+		background: var(--color-background);
+	}
+
+	:global(.splide__arrow svg) {
+		fill: var(--color-text);
+	}
+
+	:global(.splide__pagination__page) {
+		background-color: var(--color-background);
+		opacity: 1;
+	}
+
+	:global(.splide__pagination__page.is-active) {
+		background-color: var(--color-text);
+	}
+</style>
