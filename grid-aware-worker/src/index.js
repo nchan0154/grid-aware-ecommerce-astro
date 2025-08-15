@@ -22,7 +22,7 @@ export default {
 			contentType: ['text/html', 'text/plain'],
 			devMode: false,
 			infoBar: {
-        target: "#gaw-info-bar .container",
+        target: "#gaw-info-bar",
         learnMoreLink:
           "https://www.thegreenwebfoundation.org/tools/grid-aware-websites/",
         version: "latest",
