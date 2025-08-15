@@ -50,10 +50,12 @@
 			"zone_name": "nicchan.me"
 		}
 	],
-	"kv_namespaces": [{
-    "binding": "KV_BINDING",
-		"id": "7434cf901f894c008ff453bb77995f37"
-	}],
+	"kv_namespaces": [
+    {
+      "binding": "GAW_DATA_KV",
+      "id": "46a6dbceb6c04ab5af6957da12ce837d"
+    }
+  ]
 	/**
 		 * Smart Placement
 		 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

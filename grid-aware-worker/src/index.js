@@ -22,13 +22,14 @@ export default {
 			contentType: ['text/html', 'text/plain'],
 			devMode: false,
 			infoBar: {
-        target: "#gaw-info-bar",
+        target: "#gaw-info-bar .container",
         learnMoreLink:
           "https://www.thegreenwebfoundation.org/tools/grid-aware-websites/",
         version: "latest",
         popoverText:
           "This website adapts based on your local electricity grid's carbon intensity",
       },
+			kvCacheData: true,
       htmlChanges: {
 				low: new HTMLRewriter()
 					.on('body', {
