@@ -7,6 +7,7 @@ import Tabs from "../components/GA-tabs.astro";
 ---
 
 <Layout>
+	<div id="gaw-info-bar"></div>
 	<AnnouncementBar />
 	<ProductSlider />
 	<div class="container">
@@ -16,14 +17,21 @@ import Tabs from "../components/GA-tabs.astro";
 	<slot name="dialog" />
 </Layout>
 
-<style>
+<style is:global>
 	.container {
 		margin: auto;
 		padding: var(--space-l) 0;
 		inline-size: 90%;
 		max-inline-size: 50ch;
 	}
-	:global(.container > * + *) {
+
+	.container > * + * {
 		margin-block-start: var(--space-l);
 	}
+
+	#gaw-info-bar:not(:empty) {
+		background-color: #e3eedb;
+		border-block-end: var(--border);
+	}
+
 </style>
