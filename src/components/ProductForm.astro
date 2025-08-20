@@ -11,7 +11,9 @@
 	</p>
 </div>
 <custom-dialog>
-	<button class="button" data-modal-opener>Add to cart</button>
+	<form action="/" method="get">
+		<button class="button" data-modal-opener>Add to cart</button>
+	</form>
 	<dialog class="dialog stack" slot="dialog">
 		<button class="dialog__close" data-close>&times; Close</button>
 		<p>Item has been added to cart!</p>
@@ -30,7 +32,10 @@
 			this.dialog = this.querySelector("dialog");
 			this.close = this.dialog.querySelectorAll("[data-close]");
 
-			this.button.addEventListener("click", (event) => this.dialog.showModal());
+			this.button.addEventListener("click", (event) => {
+				event.preventDefault();
+				this.dialog.showModal();
+			});
 			this.close.forEach((close) => {
 				close.addEventListener("click", (event) => this.dialog.close());
 			});
